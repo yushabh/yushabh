@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface Project {
   id: number;
@@ -17,51 +17,51 @@ const Portfolio: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: "E-commerce Platform",
-      category: "Development",
-      image: "/portfolio/project1.jpg",
-      link: "#",
-      description: "Modern e-commerce solution with React and Node.js"
-    },
-    {
-      id: 2,
-      title: "Mobile Banking App",
-      category: "Mobile App",
-      image: "/portfolio/project2.jpg",
-      link: "#",
-      description: "Secure and user-friendly banking application"
-    },
-    {
-      id: 3,
       title: "Portfolio Website",
       category: "Design",
       image: "/portfolio/project3.jpg",
       link: "#",
-      description: "Creative portfolio design for photographers"
+      description: "Creative portfolio design."
+    },
+    {
+      id: 2,
+      title: "Gujarat Innovation Society",
+      category: "Development",
+      image: "/portfolio/project1.jpg",
+      link: "#",
+      description: "Platform designed to foster innovation across educational institutions, industries, and government initiatives through awards and recognition."
+    },
+    {
+      id: 3,
+      title: "Soothify Meditation App",
+      category: "Mobile App",
+      image: "/portfolio/project2.jpg",
+      link: "#",
+      description: "Meditation app offering relaxing video-audio content with in-app purchase functionality for premium subscriptions."
     },
     {
       id: 4,
-      title: "Task Management",
-      category: "Development",
+      title: "Omega Disaster Restoration App",
+      category: "Mobile App",
       image: "/portfolio/project4.jpg",
       link: "#",
-      description: "Collaborative task management platform"
+      description: "Disaster recovery platform offering services for water, fire, mold, and storm damage restoration for homes and businesses."
     },
     {
       id: 5,
-      title: "Travel App UI",
-      category: "Design",
+      title: "Influencer App",
+      category: "Mobile App",
       image: "/portfolio/project5.jpg",
       link: "#",
-      description: "Beautiful travel application interface"
+      description: "Mobile application for selling clothing and footwear, earning commissions, connecting influencers and customers."
     },
     {
       id: 6,
-      title: "Food Delivery App",
-      category: "Mobile App",
+      title: "Online Tiffin Service System (OTSS)",
+      category: "Development",
       image: "/portfolio/project6.jpg",
       link: "#",
-      description: "Restaurant food delivery application"
+      description: "The Online Tiffin Service System is a web-based application designed to help administrators efficiently and securely manage all activities online. From a user's perspective, they can conveniently order food online on a daily, weekly, or monthly basis. Payment options include cash on delivery or online payment at the time of delivery. Additionally, after placing an order, users receive a QR code linked to the restaurant, allowing them to make payments and share the receipt seamlessly."
     },
   ];
 
@@ -104,42 +104,33 @@ const Portfolio: React.FC = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="group"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
+              className="bg-card-dark rounded-xl overflow-hidden group"
             >
-              <div className="bg-card-gradient rounded-lg overflow-hidden shadow-card">
-                <div className="relative overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-primary bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="text-center p-4">
-                      <h4 className="text-white text-xl font-bold mb-2">{project.title}</h4>
-                      <p className="text-white text-sm mb-4">{project.description}</p>
-                      <a
-                        href={project.link}
-                        className="inline-block px-6 py-2 border-2 border-white text-white hover:bg-white hover:text-primary transition-colors duration-300 rounded-full"
-                      >
-                        View Project
-                      </a>
-                    </div>
-                  </div>
+              <div className="relative overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <button
+                    onClick={() => setSelectedProject(project)}
+                    className="px-6 py-3 bg-primary text-white rounded-lg transform -translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+                  >
+                    View Project
+                  </button>
                 </div>
-                <div className="p-6">
-                  <h4 className="text-white text-xl font-bold mb-2 group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h4>
-                  <p className="text-text-light">{project.category}</p>
-                </div>
+              </div>
+              <div className="p-6">
+                <h4 className="text-xl font-bold text-white mb-2">{project.title}</h4>
+                <p className="text-text-light">{project.category}</p>
               </div>
             </motion.div>
           ))}
