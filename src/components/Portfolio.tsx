@@ -49,22 +49,22 @@ const Portfolio: React.FC = () => {
       link: "https://play.google.com/store/apps/details?id=com.omegadisaster.restoration",
       description: "Disaster recovery platform offering services for water, fire, mold, and storm damage restoration for homes and businesses."
     },
-    {
-      id: 5,
-      title: "Influencer App",
-      category: "Mobile App",
-      image: "/portfolio/project5.jpg",
-      link: "#",
-      description: "Mobile application for selling clothing and footwear, earning commissions, connecting influencers and customers."
-    },
-    {
-      id: 6,
-      title: "Online Tiffin Service System (OTSS)",
-      category: "Development",
-      image: "/portfolio/project6.jpg",
-      link: "#",
-      description: "The Online Tiffin Service System is a web-based application designed to help administrators efficiently and securely manage all activities online. From a user's perspective, they can conveniently order food online on a daily, weekly, or monthly basis. Payment options include cash on delivery or online payment at the time of delivery. Additionally, after placing an order, users receive a QR code linked to the restaurant, allowing them to make payments and share the receipt seamlessly."
-    },
+    // {
+    //   id: 5,
+    //   title: "Influencer App",
+    //   category: "Mobile App",
+    //   image: "/portfolio/project5.jpg",
+    //   link: "#",
+    //   description: "Mobile application for selling clothing and footwear, earning commissions, connecting influencers and customers."
+    // },
+    // {
+    //   id: 6,
+    //   title: "Online Tiffin Service System (OTSS)",
+    //   category: "Development",
+    //   image: "/portfolio/project6.jpg",
+    //   link: "#",
+    //   description: "The Online Tiffin Service System is a web-based application designed to help administrators efficiently and securely manage all activities online. From a user's perspective, they can conveniently order food online on a daily, weekly, or monthly basis. Payment options include cash on delivery or online payment at the time of delivery. Additionally, after placing an order, users receive a QR code linked to the restaurant, allowing them to make payments and share the receipt seamlessly."
+    // },
   ];
 
   const filteredProjects = projects.filter(project => 
