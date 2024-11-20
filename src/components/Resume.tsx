@@ -21,17 +21,17 @@ const Resume: React.FC = () => {
   const education: Education[] = [
     {
       id: 1,
-      period: "2018 - 2022",
-      degree: "Bachelor of Computer Science",
-      institution: "University of Technology",
-      description: "Studied computer science with a focus on software engineering and web development. Graduated with honors."
+      period: "2021 - 2023",
+      degree: "Master of Computer Application",
+      institution: "P R Pote College of Engineering and Management, Amravati (MH)",
+      description: "Completed Post Graduate Program with a focus on technology and management."
     },
     {
       id: 2,
-      period: "2016 - 2018",
-      degree: "Associate Degree in Web Design",
-      institution: "Design Institute",
-      description: "Learned fundamentals of web design, UI/UX principles, and digital media production."
+      period: "2018 - 2021",
+      degree: "Bachelor of Computer Science (CS)",
+      institution: "J M Patel College of Science, Bhandara (MH)",
+      description: "Learned fundamentals of computer science and programming."
     }
   ];
 
