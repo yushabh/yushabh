@@ -38,25 +38,18 @@ const Resume: React.FC = () => {
   const experience: Experience[] = [
     {
       id: 1,
-      period: "2022 - Present",
-      role: "Senior Frontend Developer",
-      company: "Tech Solutions Inc.",
-      description: "Leading frontend development team, implementing modern web applications using React and TypeScript."
-    },
-    {
-      id: 2,
-      period: "2020 - 2022",
+      period: "Feb 2023 - Present",
       role: "Web Developer",
-      company: "Digital Agency",
-      description: "Developed responsive websites and web applications for various clients using modern technologies."
+      company: "Yudiz Solutions Limited, Ahmedabad",
+      description: "Started as a trainee and grew into a web developer role. Expertise in Laravel technology with completed web projects and backend APIs for mobile applications. Leveraged AI tools and technologies to enhance development efficiency and solution quality. Received extensive training in web development technologies (HTML, CSS, JavaScript, MySQL, PHP, Laravel) and learned SOLID principles, Data Structures and Algorithms (DSA), and logic building. Proficient with development tools like Git and VS Code."
     },
-    {
-      id: 3,
-      period: "2019 - 2020",
-      role: "Junior Developer",
-      company: "Startup Hub",
-      description: "Worked on frontend development tasks and collaborated with the design team on UI implementation."
-    }
+    // {
+    //   id: 2,
+    //   period: "2019 - 2020",
+    //   role: "Junior Developer",
+    //   company: "Startup Hub",
+    //   description: "Worked on frontend development tasks and collaborated with the design team on UI implementation."
+    // }
   ];
 
   const containerVariants = {
