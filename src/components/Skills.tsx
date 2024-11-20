@@ -21,7 +21,7 @@ const Skills: React.FC = () => {
       category: 'Tools & Methods',
       icon: '🛠',
       description: 'Using modern development tools and practices',
-      technologies: ['Git', 'GitHub', 'GitLab', 'Jira', 'Trello', 'Basecamp', 'Slack', 'Figma'],
+      technologies: ['Git', 'GitHub', 'Jira', 'Trello', 'Basecamp', 'Slack', 'Figma'],
     },
   ];
 
