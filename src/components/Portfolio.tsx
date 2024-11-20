@@ -13,6 +13,7 @@ interface Project {
 const Portfolio: React.FC = () => {
   const categories = ['All', 'Development', 'Design', 'Mobile App'];
   const [activeCategory, setActiveCategory] = useState('All');
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const projects: Project[] = [
     {
@@ -135,6 +136,56 @@ const Portfolio: React.FC = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Project Modal */}
+        <AnimatePresence>
+          {selectedProject && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedProject(null)}
+              className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4"
+            >
+              <motion.div
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.95, opacity: 0 }}
+                onClick={(e) => e.stopPropagation()}
+                className="bg-card-dark rounded-xl overflow-hidden max-w-3xl w-full"
+              >
+                <div className="relative">
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    className="w-full h-[400px] object-cover"
+                  />
+                  <button
+                    onClick={() => setSelectedProject(null)}
+                    className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black bg-opacity-50 text-white flex items-center justify-center hover:bg-opacity-75 transition-all"
+                  >
+                    ✕
+                  </button>
+                </div>
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold text-white mb-4">{selectedProject.title}</h3>
+                  <p className="text-text-light mb-6">{selectedProject.description}</p>
+                  <div className="flex justify-between items-center">
+                    <span className="text-primary font-medium">{selectedProject.category}</span>
+                    <a
+                      href={selectedProject.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors"
+                    >
+                      Visit Project
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );
