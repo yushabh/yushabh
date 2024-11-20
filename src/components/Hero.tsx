@@ -154,7 +154,7 @@ const Hero: React.FC = () => {
               >
                 <div className="bg-card-gradient rounded-3xl p-6 shadow-card overflow-hidden">
                   <img
-                    src="https://picsum.photos/200"
+                    src="./../../public/yushabh.jpg"
                     alt="Yushabh Dhande"
                     className="w-full h-auto rounded-2xl"
                   />
