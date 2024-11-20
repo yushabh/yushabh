@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+// import portfolioImg from "./../../public/projects/portfolio.png";
 
 interface Project {
   id: number;
@@ -20,32 +21,32 @@ const Portfolio: React.FC = () => {
       id: 1,
       title: "Portfolio Website",
       category: "Design",
-      image: "/portfolio/project3.jpg",
-      link: "#",
+      image: "./../../public/projects/portfolio.png",
+      link: "https://yushabh-portfolio.vercel.app/",
       description: "Creative portfolio design."
     },
     {
       id: 2,
       title: "Gujarat Innovation Society",
       category: "Development",
-      image: "/portfolio/project1.jpg",
-      link: "#",
+      image: "./../../public/projects/gis.png",
+      link: "",
       description: "Platform designed to foster innovation across educational institutions, industries, and government initiatives through awards and recognition."
     },
     {
       id: 3,
       title: "Soothify Meditation App",
       category: "Mobile App",
-      image: "/portfolio/project2.jpg",
-      link: "#",
+      image: "./../../public/projects/soothify.png",
+      link: "https://play.google.com/store/apps/details?id=com.soothify.app",
       description: "Meditation app offering relaxing video-audio content with in-app purchase functionality for premium subscriptions."
     },
     {
       id: 4,
       title: "Omega Disaster Restoration App",
       category: "Mobile App",
-      image: "/portfolio/project4.jpg",
-      link: "#",
+      image: "./../../public/projects/omega.png",
+      link: "https://play.google.com/store/apps/details?id=com.omegadisaster.restoration",
       description: "Disaster recovery platform offering services for water, fire, mold, and storm damage restoration for homes and businesses."
     },
     {
