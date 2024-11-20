@@ -117,7 +117,7 @@ const Contact: React.FC = () => {
                 onChange={handleChange}
                 required
                 className="w-full px-4 py-3 bg-secondary rounded-lg border border-gray-700 text-white focus:outline-none focus:border-primary transition-colors duration-300"
-                placeholder="John Doe"
+                placeholder="Your Name"
               />
             </div>
 

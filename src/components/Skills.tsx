@@ -7,19 +7,21 @@ const Skills: React.FC = () => {
       category: 'Frontend Development',
       icon: '💻',
       description: 'Creating responsive and interactive user interfaces',
-      technologies: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'HTML5', 'CSS3'],
+      technologies: ['HTML5', 'CSS3', 'Bootstrap', 'Tailwind CSS', 'React', 'TypeScript'],
+      // technologies: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'HTML5', 'CSS3'],
     },
     {
       category: 'Backend Development',
       icon: '⚙️',
       description: 'Building robust server-side applications',
-      technologies: ['Node.js', 'Express', 'MongoDB', 'RESTful APIs', 'GraphQL'],
+      technologies: ['Laravel', 'PHP', 'MySQL', 'RESTful APIs', 'MVC Architecture'],
+      // technologies: ['Node.js', 'Express', 'MongoDB', 'RESTful APIs', 'GraphQL'],
     },
     {
       category: 'Tools & Methods',
       icon: '🛠',
       description: 'Using modern development tools and practices',
-      technologies: ['Git', 'Docker', 'AWS', 'Agile', 'CI/CD', 'Jest'],
+      technologies: ['Git', 'GitHub', 'GitLab', 'Jira', 'Trello', 'Basecamp', 'Slack', 'Figma'],
     },
   ];
 
@@ -76,9 +78,9 @@ const Skills: React.FC = () => {
           <div className="space-y-8">
             <h4 className="text-2xl font-bold text-white mb-6">Professional Skills</h4>
             {[
-              { skill: 'React & TypeScript', percentage: 90 },
-              { skill: 'Node.js & Express', percentage: 85 },
-              { skill: 'UI/UX Design', percentage: 80 },
+              { skill: 'Laravel', percentage: 85 },
+              { skill: 'React & TypeScript', percentage: 75 },
+              // { skill: 'UI/UX Design', percentage: 80 },
             ].map((item, index) => (
               <div key={index} className="space-y-2">
                 <div className="flex justify-between text-gray-400">
@@ -101,9 +103,10 @@ const Skills: React.FC = () => {
           <div className="space-y-8">
             <h4 className="text-2xl font-bold text-white mb-6">Tools I Use</h4>
             {[
-              { skill: 'Git & GitHub', percentage: 95 },
               { skill: 'VS Code & DevTools', percentage: 90 },
-              { skill: 'Figma & Design Tools', percentage: 75 },
+              { skill: 'Git & GitHub', percentage: 80 },
+              { skill: 'MacOS, Windows', percentage: 90 },
+              // { skill: 'Figma & Design Tools', percentage: 75 },
             ].map((item, index) => (
               <div key={index} className="space-y-2">
                 <div className="flex justify-between text-gray-400">

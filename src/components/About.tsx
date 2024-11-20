@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import aboutImage from '../about.png';
 
 const About: React.FC = () => {
   const stats = [
@@ -37,7 +38,7 @@ const About: React.FC = () => {
             </p>
             <p className="text-gray-400 leading-relaxed">
               I specialize in creating responsive, user-friendly websites and applications using modern technologies 
-              like React, TypeScript, and Node.js. My approach combines technical expertise with creative problem-solving 
+              like React, Laravel. My approach combines technical expertise with creative problem-solving 
               to deliver solutions that not only look great but also perform exceptionally.
             </p>
             
@@ -67,8 +68,8 @@ const About: React.FC = () => {
           >
             <div className="w-full aspect-square bg-gradient-to-tr from-[#ff014f] to-purple-600 rounded-full opacity-20 absolute blur-3xl"></div>
             <img
-              src="/about-image.jpg"
-              alt="About Me"
+              src={aboutImage}
+              alt="About Yushabh"
               className="w-full rounded-2xl relative z-10"
             />
           </motion.div>

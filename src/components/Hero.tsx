@@ -1,12 +1,40 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaGithub } from 'react-icons/fa';
 
 const Hero: React.FC = () => {
   const socialLinks = [
-    { name: 'Facebook', icon: '/icons/facebook.svg', url: '#' },
-    { name: 'Twitter', icon: '/icons/twitter.svg', url: '#' },
-    { name: 'LinkedIn', icon: '/icons/linkedin.svg', url: '#' },
+    {
+      name: 'GitHub',
+      url: 'https://github.com/yush2428',
+      icon: FaGithub,
+      bgColor: 'bg-[#6e40c9]'
+    },
+    { 
+      name: 'LinkedIn', 
+      icon: FaLinkedinIn, 
+      url: 'https://www.linkedin.com/in/yushabhdhande',
+      bgColor: 'bg-[#0A66C2]'
+    },
+    {
+      name: 'Instagram',
+      url: 'https://www.instagram.com/yush.d_2428',
+      icon: FaInstagram,
+      bgColor: 'bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737]'
+    },
+    { 
+      name: 'Facebook', 
+      icon: FaFacebookF, 
+      url: 'https://www.facebook.com/yushabhvd',
+      bgColor: 'bg-[#1877f2]'
+    },
+    { 
+      name: 'Twitter', 
+      icon: FaTwitter, 
+      url: 'https://x.com/yushabh3',
+      bgColor: 'bg-[#1DA1F2]'
+    }
   ];
 
   return (
@@ -26,7 +54,7 @@ const Hero: React.FC = () => {
               transition={{ delay: 0.2 }}
               className="text-lg text-primary font-medium mb-4 block"
             >
-              WELCOME TO MY WORLD
+              WELCOME
             </motion.span>
 
             <motion.h1
@@ -35,10 +63,10 @@ const Hero: React.FC = () => {
               transition={{ delay: 0.3 }}
               className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
             >
-              Hi, I'm <span className="text-primary">John Doe</span>
+              Hi, I'm <span className="text-primary">Yushabh Dhande</span>
               <br />
               <span className="text-text-light">
-                a Creative Developer
+                a Laravel Developer
               </span>
             </motion.h1>
 
@@ -87,23 +115,25 @@ const Hero: React.FC = () => {
               className="mt-12"
             >
               <h6 className="text-text-light mb-4">Find me on</h6>
-              <div className="flex gap-4 justify-center lg:justify-start">
-                {socialLinks.map((link) => (
-                  <motion.a
-                    key={link.name}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ y: -5 }}
-                    className="bg-card-gradient p-4 rounded-lg shadow-button hover:shadow-lg transition-all duration-300"
-                  >
-                    <img
-                      src={link.icon}
-                      alt={link.name}
-                      className="w-5 h-5"
-                    />
-                  </motion.a>
-                ))}
+              <div className="flex gap-4">
+                {socialLinks.map((link, index) => {
+                  const Icon = link.icon;
+                  return (
+                    <motion.a
+                      key={index}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
+                      className={`w-12 h-12 ${link.bgColor} rounded-lg flex items-center justify-center text-white`}
+                    >
+                      <Icon className="w-[22px] h-[22px]" />
+                    </motion.a>
+                  );
+                })}
               </div>
             </motion.div>
           </motion.div>
@@ -124,8 +154,8 @@ const Hero: React.FC = () => {
               >
                 <div className="bg-card-gradient rounded-3xl p-6 shadow-card overflow-hidden">
                   <img
-                    src="/profile.jpg"
-                    alt="Profile"
+                    src="https://picsum.photos/200"
+                    alt="Yushabh Dhande"
                     className="w-full h-auto rounded-2xl"
                   />
                 </div>

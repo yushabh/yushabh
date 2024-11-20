@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from "../logo.png";
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,7 +10,8 @@ const Header: React.FC = () => {
   const menuItems = [
     { name: 'Home', to: 'hero' },
     { name: 'About', to: 'about' },
-    { name: 'Portfolio', to: 'portfolio' },
+    { name: 'Skills', to: 'features' },
+    // { name: 'Portfolio', to: 'portfolio' },
     { name: 'Resume', to: 'resume' },
     { name: 'Contact', to: 'contact' },
   ];
@@ -39,7 +41,7 @@ const Header: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="text-2xl font-bold text-white"
           >
-            <img src="/logo.png" alt="Logo" className="h-12" />
+            <img src={logo} alt="Yushabh Dhande" className="h-12" />
           </motion.a>
 
           {/* Desktop Menu */}
