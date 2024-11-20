@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import aboutImage from '../about.png';
+import aboutImage from './../../public/about.png';
 
 const About: React.FC = () => {
   const stats = [
