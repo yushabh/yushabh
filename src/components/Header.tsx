@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from "./../../public/logo.png";
+import logo from "../assets/logo.svg";
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
