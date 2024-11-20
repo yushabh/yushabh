@@ -7,23 +7,23 @@ import Portfolio from './components/Portfolio';
 import Resume from './components/Resume';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import './styles/main.scss';
 
-const App: React.FC = () => {
-  return (
-    <div className="app">
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Portfolio />
-        <Resume />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
-  );
-};
+const App = () => (
+  <div className="app">
+    <Header />
+    <main>
+      <Hero />
+      <About />
+      <Skills />
+      <Portfolio />
+      <Resume />
+      <Contact />
+    </main>
+    <Footer />
+    <ScrollToTop />
+  </div>
+);
 
 export default App;
