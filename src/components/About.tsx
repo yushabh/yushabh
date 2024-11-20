@@ -5,8 +5,8 @@ import aboutImage from './../../public/about.png';
 const About: React.FC = () => {
   const stats = [
     { label: 'Years of Experience', value: '2+' },
-    { label: 'Projects Completed', value: '50+' },
-    { label: 'Satisfied Clients', value: '30+' },
+    { label: 'Projects Completed', value: '5+' },
+    // { label: 'Satisfied Clients', value: '30+' },
   ];
 
   return (
