@@ -20,19 +20,19 @@ const Contact: React.FC = () => {
     {
       icon: '📱',
       title: 'Phone',
-      content: '+1 (555) 123-4567',
-      link: 'tel:+15551234567'
+      content: '+91 8805881762',
+      link: 'tel:+918805881762'
     },
     {
       icon: '📧',
       title: 'Email',
-      content: 'contact@example.com',
-      link: 'mailto:contact@example.com'
+      content: 'yushabh3@gmail.com',
+      link: 'mailto:yushabh3@gmail.com'
     },
     {
       icon: '📍',
       title: 'Location',
-      content: 'San Francisco, CA'
+      content: 'Ahmedabad, Gujarat, India',
     }
   ];
 
