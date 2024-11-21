@@ -38,8 +38,8 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <section id="hero" className="min-h-screen flex items-center pt-20 pb-10 bg-secondary overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section id="hero" className="min-h-screen flex items-center pt-20 pb-10 bg-secondary overflow-x-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <motion.div
@@ -84,7 +84,7 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="flex flex-wrap gap-4 justify-center lg:justify-start"
+              className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8"
             >
               <Link
                 to="portfolio"
@@ -102,9 +102,9 @@ const Hero: React.FC = () => {
                 smooth={true}
                 offset={-100}
                 duration={500}
-                className="bg-primary hover:bg-opacity-90 text-white px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
+                className="border border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-lg transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
               >
-                Hire Me
+                Contact Me
               </Link>
             </motion.div>
 
@@ -112,38 +112,28 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="mt-12"
+              className="flex items-center justify-center lg:justify-start space-x-4 w-full"
             >
-              <h6 className="text-text-light mb-4">Find me on</h6>
-              <div className="flex gap-4">
-                {socialLinks.map((link, index) => {
-                  const Icon = link.icon;
-                  return (
-                    <motion.a
-                      key={index}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.3 }}
-                      className={`w-12 h-12 ${link.bgColor} rounded-lg flex items-center justify-center text-white`}
-                    >
-                      <Icon className="w-[22px] h-[22px]" />
-                    </motion.a>
-                  );
-                })}
-              </div>
+              {socialLinks.map((link, index) => (
+                <a
+                  key={index}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-10 h-10 ${link.bgColor} rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform duration-300`}
+                >
+                  <link.icon className="w-5 h-5" />
+                </a>
+              ))}
             </motion.div>
           </motion.div>
 
-          {/* Right Content - Profile Image */}
+          {/* Right Content (Image/Avatar) */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative"
+            className="hidden lg:flex justify-center items-center"
           >
             <div className="relative w-full max-w-md mx-auto">
               <motion.div
