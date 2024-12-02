@@ -57,10 +57,10 @@ const Contact: React.FC = () => {
 
     try {
       const result = await emailjs.sendForm(
-        import.meta.env.VITE_NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        import.meta.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        import.meta.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
         form.current,
-        import.meta.env.VITE_NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+        import.meta.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       );
 
       if (result.text === 'OK') {
