@@ -57,10 +57,10 @@ const Contact: React.FC = () => {
 
     try {
       const result = await emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        'service_w1gp4ug',
+        'template_6dalv4k',
         form.current,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+        '2Hxs_NkcmiwJ2vn9p',
       );
 
       if (result.text === 'OK') {
