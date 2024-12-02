@@ -56,13 +56,13 @@ const Contact: React.FC = () => {
     setSubmitStatus({ type: null, message: '' });
 
     try {
-      console.log('Service ID:', import.meta.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID);
-      console.log('Template ID:', import.meta.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID);
-      console.log('Public Key:', import.meta.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
+      console.log('Service ID:', import.meta.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID);
+      console.log('Template ID:', import.meta.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID);
+      console.log('Public Key:', import.meta.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
       
-      const serviceId = import.meta.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-      const templateId = import.meta.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-      const publicKey = import.meta.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+      const serviceId = import.meta.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
       if (!serviceId || !templateId || !publicKey) {
         throw new Error('EmailJS configuration is missing. Please check your environment variables.');
