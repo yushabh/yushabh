@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from 'emailjs-com';
 
 interface ContactInfo {
   icon: string;
@@ -9,12 +10,22 @@ interface ContactInfo {
 }
 
 const Contact: React.FC = () => {
+  const form = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
+
+  useEffect(() => {
+    emailjs.init("2Hxs_NkcmiwJ2vn9p");
+  }, []);
 
   const contactInfo: ContactInfo[] = [
     {
@@ -36,24 +47,59 @@ const Contact: React.FC = () => {
     }
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
+    
+    if (!form.current) return;
+    
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    try {
+      const result = await emailjs.sendForm(
+        import.meta.env.VITE_NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        form.current,
+        import.meta.env.VITE_NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      );
+
+      if (result.text === 'OK') {
+        setSubmitStatus({
+          type: 'success',
+          message: 'Message sent successfully! I will get back to you soon.'
+        });
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setSubmitStatus({
+        type: 'error',
+        message: 'Failed to send message. Please try again later.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
+    // Map EmailJS field names to state fields
+    const fieldMap: { [key: string]: string } = {
+      user_name: 'name',
+      user_email: 'email',
+      subject: 'subject',
+      message: 'message'
+    };
+    
+    const stateField = fieldMap[name] || name;
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [stateField]: value
     }));
   };
 
@@ -106,13 +152,13 @@ const Contact: React.FC = () => {
           viewport={{ once: true }}
           className="mt-12 bg-card-gradient p-8 rounded-lg shadow-card"
         >
-          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <form ref={form} onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
               <label htmlFor="name" className="text-text-light">Your Name</label>
               <input
                 type="text"
                 id="name"
-                name="name"
+                name="user_name"
                 value={formData.name}
                 onChange={handleChange}
                 required
@@ -126,7 +172,7 @@ const Contact: React.FC = () => {
               <input
                 type="email"
                 id="email"
-                name="email"
+                name="user_email"
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -166,11 +212,26 @@ const Contact: React.FC = () => {
             <div className="md:col-span-2 text-center">
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="px-8 py-4 bg-primary text-white rounded-full font-medium hover:bg-opacity-90 transition-colors duration-300"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </div>
+
+            {submitStatus.type && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className={`md:col-span-2 text-center p-4 rounded-lg ${
+                  submitStatus.type === 'success'
+                    ? 'text-green-500'
+                    : 'text-red-500'
+                }`}
+              >
+                {submitStatus.message}
+              </motion.div>
+            )}
           </form>
         </motion.div>
       </div>
