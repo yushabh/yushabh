@@ -22,7 +22,7 @@ const Portfolio: React.FC = () => {
       title: "Portfolio Website",
       category: "Design",
       image: "/projects/portfolio.png",
-      link: "https://yushabh.vercel.app/",
+      link: "https://yushabh-dhande.vercel.app/",
       description: "Creative portfolio design."
     },
     {
