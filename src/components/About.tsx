@@ -68,7 +68,7 @@ const About: React.FC = () => {
             <div className="w-full aspect-square bg-gradient-to-tr from-[#ff014f] to-purple-600 rounded-full opacity-20 absolute blur-3xl"></div>
             <img
               src="/about.png"
-              alt="yushabh yushabh"
+              alt="Yushabh Dhande"
               className="w-full rounded-2xl relative z-10"
             />
           </motion.div>
