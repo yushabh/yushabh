@@ -7,6 +7,7 @@ import Resume from './components/Resume';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import { Analytics } from '@vercel/analytics/react';
 import './styles/main.scss';
 
 const App = () => (
@@ -22,6 +23,7 @@ const App = () => (
     </main>
     <Footer />
     <ScrollToTop />
+    <Analytics />
   </div>
 );
 
